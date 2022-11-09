@@ -1,0 +1,695 @@
+<!DOCTYPE HTML>
+<meta charset="utf-8">
+<style>html{ white-space: pre-wrap; }h{color:orange;}</style>
+<script src='zs/zsnote.js'></script>
+
+
+
+
+
+<h>r:url</h>
+<z>
+
+<k>r ab .jpg .mp3 .mp4 ^^!#</k>
+<c>
+图片：
+<r>url/z.jpg</r>
+<r>url/z.jpg</r>
+音频：
+<r1>url/z.mp3</r1>
+<r1>url/z.mp3</r1>
+视频：
+<r>url/z.mp4</r>
+<r>url/z.mp4</r>
+
+锚：<r>#i_chapter</r>
+链接：<r>http://localhost.com</r>，带端口：<r>http://localhost:3000</r>
+链接本地页面：<r>1.html</r>
+iframe链接：<r if>url/if/react/react.html</r>
+ <r>!url/if/react/react.html</r>
+iframe url前!或属性有if即可. !是方便后面的集合.
+
+</c>
+
+
+------------------------
+图，多媒体，锚，链接：他们核心都是url，靠后缀等已经够区分。
+甚至可以直接一个标记内置多条url,以换行划分。
+<c>
+<r>
+url/z.jpg
+url/z.mp3
+url/z.mp4
+
+#i_chapter
+1.html
+!url/if/react/react.html
+</r>
+</c>
+
+
+
+</z>
+
+<h>t:表格</h>
+<z>
+<h>单行单元格</h>
+<c>
+带latex公式的都可以
+<t>
+^^| 函数         ^^| 顶点坐标 ^^| 对称轴 ^^| 极值 ^^|
+^^| y=ax^2       ^^| (0,0)    ^^| y轴    ^^| y=0  ^^|
+^^| y=ax^2+c     ^^| (0,c)    ^^| y轴    ^^| y=0  ^^|
+^^| y=a(x-h)^2   ^^| (h,0)    ^^| x=h    ^^| y=h  ^^|
+^^| y=a(x-h)^2+k ^^| (h,k)    ^^| x=h    ^^| y=h  ^^|
+^^| y=ax^2+bx+c  ^^| <l1>(\frac {b}{-2a},\frac {4ac-b^2}{4a})</l1>^^| <l1>x=\frac{b}{-2a}</l1>^^|<l1> y=\frac{4ac-b^2}{4a}</l1>^^|
+</t>
+</c>
+
+<h>多行表格：</h>
+<c>
+一列列的写。源码有点不直观,但是已经比html的td好了.
+<t>
+^^______
+正则特殊符号
+^^---
+说明
+^^---
+详细
+^^______
+(?:x) 	
+
+^^---
+匹配 'x' 但是不记住匹配项。
+
+^^---
+这种括号叫作非捕获括号，使得你能够定义与正则表达式运算符一起使用的子表达式。
+看看这个例子 /(?:foo){1,2}/。如果表达式是 /foo{1,2}/，{1,2} 将只应用于 'foo' 的最后一个字符 'o'。
+如果使用非捕获括号，则 {1,2} 会应用于整个 'foo' 单词。
+更多信息，可以参阅下文的 Using parentheses 条目.
+
+^^______
+x(?=y) 	
+
+^^---
+匹配'x'仅仅当'x'后面跟着'y'.这种叫做先行断言。
+
+^^---
+例如，/Jack(?=Sprat)/会匹配到'Jack'仅当它后面跟着'Sprat'。
+/Jack(?=Sprat|Frost)/匹配‘Jack’仅当它后面跟着'Sprat'或者是‘Frost’。但是‘Sprat’和‘Frost’都不是匹配结果的一部分。
+
+
+</t>
+</c>
+
+<h>网上复制表格</h>
+<c>
+复制粘贴的是\t分割的，而且只有中间有，如果没时间那么就不手动改了；
+或者自己为了方便不写行前后的标记，只标记中间的；
+<t>
+.      | 匹配除换行符以外的所有字符                    
+x?     | 匹配 0 次或一次 x 字符串                      
+x*     | 匹配 0 次或多次 x 字符串,但匹配可能的最少次数 
+x+     | 匹配 1 次或多次 x 字符串,但匹配可能的最少次数 
+.*     | 匹配 0 次或多次的任何字符                     
+.+     | 匹配 1 次或多次的任何字符                     
+[^a-z] | 匹配所有非小写字母字符                        
+</t>    
+</c>
+
+
+</z>
+
+<h>l:latex公式</h>
+<z>
+<l>
+S=\sqrt{a^2+4ab+c \over 2a}
+</l>
+<l1> S=\sqrt{a^2+4ab+c \over 2a} </l1>
+
+如果内部包含了‹›又不方便用我的z转码；
+<textarea r=l1>
+S=\sqrt{a^2+4ab+c \over 2a} <2 
+</textarea>
+
+------------------------
+<l1> C^{N}_{M}=\cfrac{M!}{N!(M-N)!} </l1>
+
+
+<l1>C^{N}_{M}={M! \over N!(M-N)}!</l1>
+
+<textarea cli>
+
+</textarea>
+<md>
+$$ C^{N}_{M}=\cfrac{M!}{N!(M-N)!} $$
+
+$$ C^{N}_{M}=\cfrac{M!}{N!(M-N)!} $$
+
+$ M! \over N!(M-N)! $  $ M! \over N!(M-N)! $
+</md>     
+
+</z>
+
+<h>c:代码高亮</h>
+<z>
+
+3种：
+<dc class=c_demo_wmm30>
+单行ib代码高亮:
+<c1>#include ‹stdio.h›int main(void) {printf("hello world"); }</c1>:这是inline-block;
+
+单行i代码高亮:
+<c2>#include ‹stdio.h›int main(void) {printf("hello world"); }</c2>:这是inline-block;
+
+块b代码高亮：
+<k>scanf printf</k>
+<c>
+#include ‹stdio.h›
+int main(void)
+{
+  char a[20];
+  int b;
+  printf("\nwhat your name?");
+  scanf("%s",a);
+  printf("\nhello!%s",a);
+  printf("\nhow old are you?");
+  scanf("%d",&b);
+  printf("\noh!%d,you are free! 100$ please!",b);
+}
+</c>
+</dc>
+
+
+注意即使是运行中的html代码也可以使用c展示源码。
+<c>
+<input>text 
+<input type=password>password 
+<input type=number>number 
+<input type=date>date 
+<input type=color>color 
+<input type=checkbox>checkbox 
+<input type=radio>radio 
+</c>
+
+
+</z>
+
+<h>textarea:编辑运行</h>
+<z>
+
+<h>vue todo demo</h>
+<textarea>
+<h2><b>simple vue todo</b></h2>
+<div id="vue_todo">
+    <button @click='items.push(JSON.parse(JSON.stringify(item_add)));'>+</button>
+    <input v-model='item_add.todo' v-on:keyup.enter='items.push(JSON.parse(JSON.stringify(item_add)));'> 
+  <ol>
+    <li v-for='(item,index) in items'>
+      <button @click='items.splice(index,1);'>-</button>
+      <input type='checkbox' v-model='item.status'> 
+      {{item.todo}}   
+    </li>
+  </ol>
+</div>
+
+<script>
+  var vue_todo = new Vue({
+      el: '#vue_todo',
+      data: {
+          items: [
+              {"todo" : "eat"   , "status" : 0} ,
+              {"todo" : "work"  , "status" : 0} ,
+              {"todo" : "sleep" , "status" : 0} ,
+            ],
+          item_add: {"todo" : "", "status" : 0},
+        },
+    })
+</script>
+</textarea>
+
+
+</z>
+
+<h>ch:快捷line bar图表</h>
+<z>
+
+<c>
+<ch>
+a b c d;
+1 3 9 6;
+2 4 8 7;
+5 3 4 8; 
+</ch>
+</c>
+
+
+
+
+</z>
+
+<h>mind: markmap思维导图</h>
+<z>
+
+<textarea cli>
+<mind>
+- markmap
+
+  - Links
+
+    - ‹https://markmap.js.org/›
+    - [GitHub](https://github.com/gera2ld/markmap)
+
+  - Related
+
+    - [coc-markmap](https://github.com/gera2ld/coc-markmap)
+    - [gatsby-remark-markmap](https://github.com/gera2ld/gatsby-remark-markmap)
+
+  - Features
+
+    - inline/multiline,还是用pre ele tag包围
+      - **inline** ~~text~~ *styles*
+      - ‹pre›
+        multi 
+        line1
+        line2
+        ‹/pre›
+    - code
+      - `inline code`
+      - code tofix 这里有bug，如果不分割和下面的合并了
+      -
+          ```js
+          console.log('code block');
+          what the fuck
+          ```
+    - latex
+      - Katex  $ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $  
+      - Katex  〈l1〉x = {-b \pm \sqrt{b^2-4ac} \over 2a}〈/l1〉  
+      - Katex  〈l〉x = {-b \pm \sqrt{b^2-4ac} \over 2a}〈/l〉  
+    - pic
+      - pic  〈r〉url/z.jpg〈/r〉  
+      - pic  〈r〉url/zs.jpg〈/r〉  
+      - pic  〈r1 style="heght:2em;width:2em;"〉url/z.jpg〈/r1〉  
+      - pic  〈r1 style="heght:1em;width:1em;"〉url/zs.jpg〈/r1〉  
+      - pic  ![](url/z.jpg)  
+      - pic  ![](url/zs.jpg)  
+    - table  
+          〈t〉
+          .      ^^| 匹配除换行符以外的所有字符                    
+          x?     ^^| 匹配 0 次或一次 x 字符串                      
+          x*     ^^| 匹配 0 次或多次 x 字符串,但匹配可能的最少次数 
+          〈/t〉    
+
+</mind>
+</textarea>
+
+
+
+
+
+</z>
+
+<h>markdown也可以</h>
+<md hashtml hasind html url='./'>
+注意演示时每个类型都要多个以防缺漏：
+
+
+链接：---
+[链接1](localhost1) 
+[链接3](localhost3)   行内多个链接？ [链接](localhost)
+[链接](www.vim.org)
+
+图片：---
+![图片](url/z.jpg) 行内多个图片？ ![图片](url/z.jpg)
+![视频](url/z.mp4) ![视频](url/z.mp4)           
+![视频](url/z.mp3) ![视频](url/z.mp3)
+![视频](url/z.mp3) ![视频](url/z.mp3)
+
+表格：---
+
+| a   | b   | c   |
+| --- | --- | --- |
+| a   | b   | c   |
+| a   | b   | c   |
+
+| a   | b   | c   |
+| --- | --- | --- |
+| a   | b   | c   |
+| a   | b   | c   |
+
+| a   | b   | c   |
+| --- | --- | --- |
+| a   | b![图片](url/z.jpg)   | c   |
+| a   | b〈l1〉x=\sqrt{b^2-4ac}〈/l1〉   | c   |
+
+
+| a   | b   | c   |
+| --- | --- | --- |
+| a   | b   | c   |
+| a   | b   | c   |
+
+
+
+代码块：---
+```js
+var a=0;
+console.log("a:",a)
+
+```
+代码块:包含‹› 时，要么使用z转码，要么用textarea包裹并且textarea加上 r属性，如果内部没‹md›标签，r属性需要写上r=md。
+```c
+if(a‹b & c›d){
+if(a‹b & c›d){
+}
+}
+```
+〈b〉hello〈/b〉
+
+```css
+.test_md{
+  color:red;
+  background:blue;
+}
+```
+
+# 嵌套列表：纯空行或非  或- 的开头行就分开列表区域，本来打算内部可以纯空行的但是太容易冲突就算了；
+ 
+可以包含html标签
+
+- 第1列表1
+- 第1列表2
+  - 第1列表2.1
+  - 第1列表2.2
+- 第1列表3
+
+- 如何学习D3
+  学习会怎样
+  - 预备知识" 
+    - HTML & CSS〈r1〉url/z.jpg〈/r1〉
+    - JavaScript
+      ![](url/z.jpg)〈l1〉a=b^2_c〈/l1〉
+    - DOM
+      [](localhost)
+    - SVG
+  - 安装
+    - 记事本软件
+      - Notepad++
+      - EditPlus
+      - Sublime Text
+    - 服务器软件
+      - Apache Http Server
+      - Tomcat
+
+
+非 或- 的开头行分割，空行也行, 原本想包含纯空行后来发现太容易错误了而且分割又麻烦算了。
+原来标准就是可以包含纯空行的，那还是继续吧
+
+- 第2列表1
+- 第2列表2
+- 第2列表3
+
+我是分割线
+
+- 第3列表1
+- 第3列表2
+- 第3列表3
+
+列表后面不能用-开头的分割线否则会混淆，因为要排除- 之外的有点麻烦就简单用^单字符了。
+
+有些标记特意转换，其实提升不多反而容易出错，如斜体的 _aa_ 太容易出现了。
+还有缩进代码块，如果设置了hasind才转。
+还有引用嵌套，还有默认html标签，需要设置hashtml才转。
+
+缩进代码块，依赖前后行
+我们来跨请求保持一些 cookie:
+
+    s = requests.Session()
+
+    s.get('http://httpbin.org/cookies/set/sessioncookie/123456789')
+    r = s.get("http://httpbin.org/cookies")
+
+    print(r.text)
+    # '{"cookies": {"sessioncookie": "123456789"}}'
+
+会话也可用来为请求方法提供缺省数据。这是通过为会话对象的属性提供数据来实现的：
+
+
+    s = requests.Session()
+    s.auth = ('user', 'pass')
+    s.headers.update({'x-test': 'true'})
+
+    # both 'x-test' and 'x-test2' are sent
+    s.get('http://httpbin.org/headers', headers={'x-test2': 'true'})
+
+连续多个时会有些问题。
+这种缩进代码块用于python这种有
+
+行内代码 `console.log("a:",a)` 行内代码 `console.log("a:",a)` `console.log("a:",a)` 
+行内代码 `console.log("a:",a)` 行内代码 `console.log("a:",a)` `console.log("a:",a)` 
+
+
+公式：
+空行分割，所以多个公式之间要2个间隔行以上。
+$$
+x=\sqrt{b^2-4ac}
+$$
+
+
+如果只有一行间隔则下方公式不匹配，除非使用断言模式，这样不兼容firefox56
+$$
+x=\sqrt{b^2-4ac}
+$$
+$$
+x=\sqrt{b^2-4ac}
+$$
+
+单行公式，前后各自一个空格，连续2个单行公式需要间隔2个空格以上
+$ x=\sqrt{b^2-4ac} $   $ x=\sqrt{b^2-4ac} $   $ x=\sqrt{b^2-4ac} $ 
+
+下面之间第2个不匹配，除非使用断言模式
+$ x=\sqrt{b^2-4ac} $ $ x=\sqrt{b^2-4ac} $ $ x=\sqrt{b^2-4ac} $ 
+
+〈b〉[?]todo转义是提前转\$ \- \# 用html的uniciode转义？〈/b〉
+
+------------------------
+次要的：
+------------------------
+次要的：
+
+标题：---
+# 标题1 #
+## 标题2 ##
+### 标题3 ###
+#### 标题4 ####
+##### 标题5 #####
+###### 标题6 ######
+
+想不生成目录直接用h+z折叠，所以自动生成z了。不过有时候没有严谨的h配置会bug，所以如果加上html属性即可。
+
+不用在#和内容之间加空格也可以虽然会导致更容易冲突，
+但是既然放入html，本身就需要加上前面空白符这种情况了，多一个误判而已。
+只能说编写者自行处理别用#开头
+或者先处理代码块然后写入ineerhtml，然后只对直接textnode再进行正则。
+
+<b>hello b</b>
+
+#\与标题无需空格,
+#标题1 #
+
+py注释
+```py
+#py 注释#当作标题了，
+print("hello")
+```
+
+后面加\排除一下，或者以后先处理代码块，然后先写入innerhtml，然后只对内部textnode处理即可，但目前就自行后面加个符号即可。
+
+```py
+#\py 注释与md标题冲突
+print("hello")
+```
+
+高亮，为了不误判至少2个*;
+**加强** \**加强\** **加强** \**加强\**
+**加强** \**加强\**
+
+分割线+标题：---
+
+分割线+标题1（---）
+---
+
+分割线+标题2 （===）
+===
+
+分割线+标题3 （------）
+------
+
+
+单分割线1(中间有空行则不换标题---)
+
+---
+
+
+单分割线2(中间有空行则不换标题===)
+
+===
+
+- 列表
+  - 嵌套列表不建议使用
+  - 嵌套列表不建议使用
+  - 嵌套列表不建议使用
+
+- 列表
+
+
+行内混合查bug：
+注意演示时每个类型都要多个以防缺漏：链接：--- [链接1](localhost1)  [链接3](localhost3)   行内多个链接？ [链接](localhost) [链接](www.vim.org)图片：---  ![图片](url/z.jpg) 行内多个图片？  ![图片](url/z.jpg)  ![视频](url/z.mp4)  ![视频](url/z.mp4) ![视频](url/z.mp3)![视频](url/z.mp3)![视频](url/z.mp3)行内代码 `console.log("a:",a)` 行内代码 `console.log("a:",a)` `console.log("a:",a)` 行内代码 `console.log("a:",a)` 行内代码 `console.log("a:",a)` `console.log("a:",a)` 
+
+注意这种引号扩展模式下，内部不能再有引号模块了
+其实就不应该用三引号，或者内部用我的定义标签也可以
+
+```mindmap
+- markmap
+
+  - Links
+
+    - ‹https://markmap.js.org/›
+    - [GitHub](https://github.com/gera2ld/markmap)
+
+  - Related
+
+    - [coc-markmap](https://github.com/gera2ld/coc-markmap)
+    - [gatsby-remark-markmap](https://github.com/gera2ld/gatsby-remark-markmap)
+
+  - Features
+
+    - inline/multiline,还是用pre ele tag包围
+      - **inline** ~~text~~ *styles*
+      - ‹pre›
+        multi 
+        line1
+        line2
+        ‹/pre›
+    - code
+      - `inline code`
+      - code tofix 这里有bug，如果不分割和下面的合并了
+      -
+    - latex
+      - Katex  $ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $  
+      - Katex  〈l1〉x = {-b \pm \sqrt{b^2-4ac} \over 2a}〈/l1〉  
+      - Katex  〈l〉x = {-b \pm \sqrt{b^2-4ac} \over 2a}〈/l〉  
+    - pic
+      - pic  〈r〉url/z.jpg〈/r〉  
+      - pic  〈r〉url/zs.jpg〈/r〉  
+      - pic  〈r1 style="heght:2em;width:2em;"〉url/z.jpg〈/r1〉  
+      - pic  〈r1 style="heght:1em;width:1em;"〉url/zs.jpg〈/r1〉  
+      - pic  ![](url/z.jpg)  
+      - pic  ![](url/zs.jpg)  
+    - table  
+          〈t〉
+          .      ^^| 匹配除换行符以外的所有字符                    
+          x?     ^^| 匹配 0 次或一次 x 字符串                      
+          x*     ^^| 匹配 0 次或多次 x 字符串,但匹配可能的最少次数 
+          〈/t〉    
+
+```
+
+### 流程图
+
+```mermaid
+graph TB
+    c1--›a2
+    subgraph one
+    a1--›a2
+    end
+    subgraph two
+    b1--›b2
+    end
+    subgraph three
+    c1--›c2
+    end
+```
+
+### 时序图
+
+```mermaid
+sequenceDiagram
+    Alice-››John: Hello John, how are you?
+    loop Every minute
+        John--››Alice: Great!
+    end
+```
+
+### 甘特图
+
+```mermaid
+gantt
+    title A Gantt Diagram
+    dateFormat  YYYY-MM-DD
+    section Section
+    A task           :a1, 2019-01-01, 30d
+    Another task     :after a1  , 20d
+    section Another
+    Task in sec      :2019-01-12  , 12d
+    another task      : 24d
+```
+
+### 图表
+
+```echarts
+{
+  "title": { "text": "最近 30 天" },
+  "tooltip": { "trigger": "axis", "axisPointer": { "lineStyle": { "width": 0 } } },
+  "legend": { "data": ["帖子", "用户", "回帖"] },
+  "xAxis": [{
+      "type": "category",
+      "boundaryGap": false,
+      "data": ["2019-05-08","2019-05-09","2019-05-10","2019-05-11","2019-05-12","2019-05-13","2019-05-14","2019-05-15","2019-05-16","2019-05-17","2019-05-18","2019-05-19","2019-05-20","2019-05-21","2019-05-22","2019-05-23","2019-05-24","2019-05-25","2019-05-26","2019-05-27","2019-05-28","2019-05-29","2019-05-30","2019-05-31","2019-06-01","2019-06-02","2019-06-03","2019-06-04","2019-06-05","2019-06-06","2019-06-07"],
+      "axisTick": { "show": false },
+      "axisLine": { "show": false }
+  }],
+  "yAxis": [{ "type": "value", "axisTick": { "show": false }, "axisLine": { "show": false }, "splitLine": { "lineStyle": { "color": "rgba(0, 0, 0, .38)", "type": "dashed" } } }],
+  "series": [
+    {
+      "name": "帖子", "type": "line", "smooth": true, "itemStyle": { "color": "#d23f31" }, "areaStyle": { "normal": {} }, "z": 3,
+      "data": ["18","14","22","9","7","18","10","12","13","16","6","9","15","15","12","15","8","14","9","10","29","22","14","22","9","10","15","9","9","15","0"]
+    },
+    {
+      "name": "用户", "type": "line", "smooth": true, "itemStyle": { "color": "#f1e05a" }, "areaStyle": { "normal": {} }, "z": 2,
+      "data": ["31","33","30","23","16","29","23","37","41","29","16","13","39","23","38","136","89","35","22","50","57","47","36","59","14","23","46","44","51","43","0"]
+    },
+    {
+      "name": "回帖", "type": "line", "smooth": true, "itemStyle": { "color": "#4285f4" }, "areaStyle": { "normal": {} }, "z": 1,
+      "data": ["35","42","73","15","43","58","55","35","46","87","36","15","44","76","130","73","50","20","21","54","48","73","60","89","26","27","70","63","55","37","0"]
+    }
+  ]
+}
+```
+
+### 五线谱
+
+```abc
+X: 24
+T: Clouds Thicken
+C: Paul Rosen
+S: Copyright 2005, Paul Rosen
+M: 6/8
+L: 1/8
+Q: 3/8=116
+R: Creepy Jig
+K: Em
+|:"Em"EEE E2G|"C7"_B2A G2F|"Em"EEE E2G|\
+"C7"_B2A "B7"=B3|"Em"EEE E2G|
+"C7"_B2A G2F|"Em"GFE "D (Bm7)"F2D|\
+1"Em"E3-E3:|2"Em"E3-E2B|:"Em"e2e gfe|
+"G"g2ab3|"Em"gfeg2e|"D"fedB2A|"Em"e2e gfe|\
+"G"g2ab3|"Em"gfe"D"f2d|"Em"e3-e3:|
+```
+
+
+
+
+</md>
+   
+
+
